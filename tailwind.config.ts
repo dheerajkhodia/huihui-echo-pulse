@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'echo-glow': 'hsl(var(--echo-glow))',
+				'echo-viral': 'hsl(var(--echo-viral))',
+				'echo-low': 'hsl(var(--echo-low))',
+				'surface-elevated': 'hsl(var(--surface-elevated))',
+				'text-secondary': 'hsl(var(--text-secondary))',
+				'text-muted': 'hsl(var(--text-muted))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

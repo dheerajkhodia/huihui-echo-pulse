@@ -2,41 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* HuiHui Extra-Dark Design System - Pure black with electric blue accent */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Colors - Extra Dark Theme */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Electric Blue Accent */
+    --primary: 217 100% 60%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 5%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 217 100% 60%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 12%;
+    --input: 0 0% 8%;
+    --ring: 217 100% 60%;
 
-    --radius: 0.5rem;
+    /* HuiHui Specific */
+    --echo-glow: 217 100% 60%;
+    --echo-viral: 120 100% 50%;
+    --echo-low: 0 0% 30%;
+    --surface-elevated: 0 0% 6%;
+    --text-secondary: 0 0% 70%;
+    --text-muted: 0 0% 40%;
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +108,60 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui;
   }
+}
+
+@layer utilities {
+  /* EchoMeter Glow Animation */
+  .echo-glow {
+    box-shadow: 0 0 10px hsl(var(--echo-glow) / 0.5);
+    animation: echo-pulse 2s ease-in-out infinite;
+  }
+
+  .echo-viral {
+    box-shadow: 0 0 15px hsl(var(--echo-viral) / 0.6);
+    animation: viral-pulse 1.5s ease-in-out infinite;
+  }
+
+  /* Mobile Tap Feedback */
+  .tap-feedback {
+    transition: all 0.1s ease;
+    transform-origin: center;
+  }
+
+  .tap-feedback:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  /* Floating Elements */
+  .float-elevated {
+    background: hsl(var(--surface-elevated));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 4px 24px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Post Card Hover */
+  .post-card {
+    transition: all 0.2s ease;
+    border: 1px solid hsl(var(--border));
+  }
+
+  .post-card:hover {
+    border-color: hsl(var(--primary) / 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@keyframes echo-pulse {
+  0%, 100% { box-shadow: 0 0 10px hsl(var(--echo-glow) / 0.3); }
+  50% { box-shadow: 0 0 20px hsl(var(--echo-glow) / 0.7); }
+}
+
+@keyframes viral-pulse {
+  0%, 100% { box-shadow: 0 0 15px hsl(var(--echo-viral) / 0.4); }
+  50% { box-shadow: 0 0 30px hsl(var(--echo-viral) / 0.8); }
 }
