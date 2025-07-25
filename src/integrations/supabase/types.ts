@@ -14,7 +14,84 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      posts: {
+        Row: {
+          comments_count: number
+          content: string
+          created_at: string
+          echo_score: number
+          id: string
+          likes_count: number
+          reposts_count: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          comments_count?: number
+          content: string
+          created_at?: string
+          echo_score?: number
+          id?: string
+          likes_count?: number
+          reposts_count?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          comments_count?: number
+          content?: string
+          created_at?: string
+          echo_score?: number
+          id?: string
+          likes_count?: number
+          reposts_count?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_seed: string
+          avatar_style: string
+          bio: string | null
+          created_at: string
+          follower_count: number
+          following_count: number
+          id: string
+          posts_count: number
+          updated_at: string
+          user_id: string
+          username: string
+        }
+        Insert: {
+          avatar_seed: string
+          avatar_style?: string
+          bio?: string | null
+          created_at?: string
+          follower_count?: number
+          following_count?: number
+          id?: string
+          posts_count?: number
+          updated_at?: string
+          user_id: string
+          username: string
+        }
+        Update: {
+          avatar_seed?: string
+          avatar_style?: string
+          bio?: string | null
+          created_at?: string
+          follower_count?: number
+          following_count?: number
+          id?: string
+          posts_count?: number
+          updated_at?: string
+          user_id?: string
+          username?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
